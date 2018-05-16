@@ -1,0 +1,45 @@
+{
+    "name": "sideways8/wp-project",
+    "description": "A composer installable WordPress project",
+    "authors": [
+        {
+            "name": "Sideways8 Interactive, LLC",
+            "email": "support@sideways8.com",
+            "homepage": "https://sideways8.com",
+            "role": "Organization"
+        },
+        {
+            "name": "Marty Eason",
+            "email": "martye@sideways8.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "composer/installers": "^1.3",
+        "johnpbloch/wordpress": "*",
+        "sideways8/wp-project-config": "@dev"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/sideways8/wp-project-config"
+        }
+    ],
+    "extra": {
+        "wordpress-install-dir": "www/wp",
+        "installer-paths": {
+            "www/content/plugins/{$name}/": ["type:wordpress-plugin"],
+            "www/content/themes/{$name}/": ["type:wordpress-theme"],
+            "www/content/mu-plugins/{$name}/": ["type:wordpress-muplugin"]
+        }
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "php scripts/install-configuration.php"
+        ]
+    }
+}
