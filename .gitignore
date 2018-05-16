@@ -1,2 +1,6 @@
 /vendor/
-.idea/
+/.idea/
+/www/wp/
+/config/
+composer.lock
+/www/wp-config-local.php
